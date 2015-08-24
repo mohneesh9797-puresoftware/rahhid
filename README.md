@@ -11,13 +11,13 @@ Live ThingSpeak demo
 How to build this program?
 ------------------------
 
-1. Install `libhidapi-dev` (Debian/Ubuntu) or equivalent:
+Install `libhidapi-dev` (Debian/Ubuntu) or equivalent:
 ```
 # apt-get update -qq
 # apt-get install libhidapi-dev
 ```
 
-2. Compile `rahhid` with:
+Compile `rahhid` with:
 ```
 # make
 ```
