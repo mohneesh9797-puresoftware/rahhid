@@ -54,7 +54,7 @@ Use `cron` to upload data periodically:
 
 Building for OpenWRT
 --------------------
-Download SDK package for your OpenWRT version. Download [hidapi package](https://github.com/openwrt/packages/tree/master/libs/hidapi) and put into
+Download [SDK package](http://wiki.openwrt.org/doc/howto/obtain.firmware.sdk) for your OpenWRT version. Download [hidapi package](https://github.com/openwrt/packages/tree/master/libs/hidapi) and put into
 `package/hidapi`. Install `hidapi` library and headers into SDK with `make` command.
 
 Now put `Makefile.openwrt` into `package/rahhid` directory and build `rahhid` with `make` command.
