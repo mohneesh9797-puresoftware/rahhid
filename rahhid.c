@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     if (argc == 2) {
         char *thingspeak_command = NULL;
         res = asprintf(&thingspeak_command,
-                "curl -k --data 'api_key=%s&field1=%f&field2=%f&field3=%f&field4=%f&field5=%f' https://api.thingspeak.com/update > /dev/null",
+                "curl -v -k --data 'api_key=%s&field1=%f&field2=%f&field3=%f&field4=%f&field5=%f' https://api.thingspeak.com/update",
                 argv[1], cpm, uSvph, ccpm, cuSvph, std);
         if (res < 0)
             return -1;
