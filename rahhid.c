@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <math.h>
 #include <hidapi/hidapi.h>
 
@@ -30,6 +31,13 @@ int main(int argc, char *argv[])
     if (res < 0)
         return -1;
     printf("Switched buzzer off\n");
+
+    command[0] = '\xa2';
+    res = hid_send_feature_report(handle, command, 2);
+    if (res < 0)
+        return -1;
+    printf("Reset counters... counting...\n");
+    sleep(30);
 
     res = hid_get_feature_report(handle, report, 9);
     if (res < 0)
