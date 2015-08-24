@@ -51,3 +51,17 @@ Use `cron` to upload data periodically:
 #m  h dom mon dow cmd
 */5 *  *   *   *  /usr/local/bin/rahhid "TS_API_KEY_HERE"
 ```
+
+Building for OpenWRT
+--------------------
+Download SDK package for your OpenWRT version. Download [hidapi package](https://github.com/openwrt/packages/tree/master/libs/hidapi) and put into
+`package/hidapi`. Install `hidapi` library and headers into SDK with `make` command.
+
+Now put `Makefile.openwrt` into `package/rahhid` directory and build `rahhid` with `make` command.
+
+Install libusb (from OpenWRT repository) on target device with opkg:
+```
+# opkg install libusb-1.0
+```
+
+Finally install `hidapi_<version>_<arch>.ipk` and `rahhid_<version>_<arch>.ipk` on your OpenWRT device.
