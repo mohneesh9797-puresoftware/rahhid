@@ -7,8 +7,10 @@ compiler:
     - gcc
 
 before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y libhidapi-dev
+    #- sudo apt-get update -qq
+    #- sudo apt-get install -y libhidapi-dev
+    git clone git://github.com/signal11/hidapi.git
+    cd hidapi && sh bootstrap && sh configure && make && sudo make install
 
 script:
     - make
