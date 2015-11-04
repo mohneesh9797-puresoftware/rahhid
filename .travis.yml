@@ -28,7 +28,7 @@ addons:
   coverity_scan:
     project:
       name: "burghardt/rahhid"
-      description: "rahhid"
+      description: "Build submitted via Travis CI"
     notification_email: krzysztof@burghardt.pl
     build_command_prepend: "make clean"
     build_command: "make"
