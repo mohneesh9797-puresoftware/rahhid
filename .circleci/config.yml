@@ -1,0 +1,21 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: archlinux/base:latest
+    steps:
+      - checkout
+      - run:
+          name: pacman
+          command: |
+            pacman -Syu --noconfirm base-devel hidapi
+      - run:
+          name: build
+          command: make
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build

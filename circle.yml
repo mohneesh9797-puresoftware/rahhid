@@ -1,7 +1,0 @@
-dependencies:
-    pre:
-        - sudo apt-get update; sudo apt-get install libhidapi-dev
-
-test:
-    override:
-        - make
