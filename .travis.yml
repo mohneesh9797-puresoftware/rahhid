@@ -1,28 +1,27 @@
 language: c
 
 os: linux
-dist: trusty
+dist: bionic
 sudo: required
 
+arch:
+  - amd64
+  - arm64
+
 compiler:
-    - clang
-    - gcc
+  - clang
+  - gcc
 
 before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y libhidapi-dev
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libhidapi-dev
 
 script:
-    - make
-
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - make
 
 env:
   global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "SavFMzZnlcaDjf5NJDLV7ALtq5htftv6uO4AFMHiKAvDZ0yLc90Y2o2FAMmFBJ2Ny6gi0PAqIFpr3s7YCkSneqkVzXBV1holnIheelYU6qdzYWJu+IEKma9747j5+raMsY8F/TDJDObXE7d6fZBlgO61okq1NuPPJeXOsyYA4BtCN3dsSRAn+2HZWMEc0madTFnCaQxHS8MtfEeLnaK5LwqisfhVBP5Cm0EzszyNjdz9+QcpBfGZel1Zg36suSJ1/jKGbdBvI5mOnjhYcaWL/6uaREXYLBZ0Qlclg5CIxTUR34wCF2YTgQAuFZk0JEYlB4cSOnIQ9p7FnIoOmWKT1cIH+g+WrBnDVVZ+nR1g8LgrbV/lKeWdBb19I27pWxnLCe5viO8ypPU9pqkVV+X5ElkWm/49+Ru+G3vdAf7D9u27rQHFlPXUF66XkCKOT83qLxUbLd1c95saYPEjvtGWE/IRK7ZtLp6ieyITwYTakh8jaPP/ZkJjMWW9tIgUnWI7/pGDwCveohb6xf9k574uRNwxGjsibbHmC6X0OguebvgpllT25nlLmCv99ju8oiV8fcWzB4laJKZV8RZ2xX6o2Nbq03pYMSoiB9PCOmasF8vfWvPke3N3Bgz1rT+FN3samlMGEwCxUxnOPIMuQjrejSb8huNGNoIVq659RsRGEDg="
+    - secure: "SavFMzZnlcaDjf5NJDLV7ALtq5htftv6uO4AFMHiKAvDZ0yLc90Y2o2FAMmFBJ2Ny6gi0PAqIFpr3s7YCkSneqkVzXBV1holnIheelYU6qdzYWJu+IEKma9747j5+raMsY8F/TDJDObXE7d6fZBlgO61okq1NuPPJeXOsyYA4BtCN3dsSRAn+2HZWMEc0madTFnCaQxHS8MtfEeLnaK5LwqisfhVBP5Cm0EzszyNjdz9+QcpBfGZel1Zg36suSJ1/jKGbdBvI5mOnjhYcaWL/6uaREXYLBZ0Qlclg5CIxTUR34wCF2YTgQAuFZk0JEYlB4cSOnIQ9p7FnIoOmWKT1cIH+g+WrBnDVVZ+nR1g8LgrbV/lKeWdBb19I27pWxnLCe5viO8ypPU9pqkVV+X5ElkWm/49+Ru+G3vdAf7D9u27rQHFlPXUF66XkCKOT83qLxUbLd1c95saYPEjvtGWE/IRK7ZtLp6ieyITwYTakh8jaPP/ZkJjMWW9tIgUnWI7/pGDwCveohb6xf9k574uRNwxGjsibbHmC6X0OguebvgpllT25nlLmCv99ju8oiV8fcWzB4laJKZV8RZ2xX6o2Nbq03pYMSoiB9PCOmasF8vfWvPke3N3Bgz1rT+FN3samlMGEwCxUxnOPIMuQjrejSb8huNGNoIVq659RsRGEDg="
 
 addons:
   coverity_scan:
@@ -32,4 +31,4 @@ addons:
     notification_email: krzysztof@burghardt.pl
     build_command_prepend: "make clean"
     build_command: "make"
-    branch_pattern: master
+    branch_pattern: coverity_scan
